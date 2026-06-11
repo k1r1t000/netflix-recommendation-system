@@ -1,7 +1,7 @@
 # Data files
 *.parquet
-*.csv
 *.txt
+*.csv
 
 # Python cache
 __pycache__/

@@ -55,12 +55,12 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Device: {device}")
 
 gmf_model = GMF(num_users, num_movies, dim=128, global_mean=global_mean).to(device)
-gmf_model.load_state_dict(torch.load('best_GMF_(Matrix_Factorization).pt', map_location=device))
+gmf_model.load_state_dict(torch.load('models/best_GMF_(Matrix_Factorization).pt', map_location=device, weights_only=True))
 gmf_model.eval()
 print("GMF model loaded  (RMSE: 0.7717)")
 
 ncf_model = DeepNCF(num_users, num_movies, dim=64, global_mean=global_mean).to(device)
-ncf_model.load_state_dict(torch.load('best_Deep_NCF_(MLP).pt', map_location=device))
+ncf_model.load_state_dict(torch.load('models/best_Deep_NCF_(MLP).pt', map_location=device, weights_only=True))
 ncf_model.eval()
 print("NCF model loaded  (RMSE: 0.8123)")
 

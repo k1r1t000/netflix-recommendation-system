@@ -63,6 +63,18 @@ netflix-recommendation-system/
 
 ---
 
+## Repository Modules (Deliverable 2)
+
+This repository fulfills the required architecture components:
+
+*   **Data Processing Pipeline**: Found in Section 1 of `netflix-recommendation-system.ipynb`. Handles chunked Parquet creation and intelligent threshold filtering.
+*   **Model Training Pipeline**: Found in Section 2 of `netflix-recommendation-system.ipynb`. Defines PyTorch Datasets, Dataloaders, GMF, and Deep NCF architectures.
+*   **Evaluation Scripts**: Found in Section 3 of `netflix-recommendation-system.ipynb`. Implements RMSE and MAP@10 calculations.
+*   **Recommendation Generation Module**: Implemented in the standalone `recommend.py` script.
+*   **Documentation & Instructions**: Provided in this `README.md` and the accompanying `technical_report.md`.
+
+---
+
 ## Features
 
 * Data preprocessing and filtering
@@ -132,16 +144,18 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the notebook:
-
-```bash
-jupyter notebook Netflix_Recommendation_System.ipynb
-```
-
-Run inference:
+### Option 1: Fast Inference (Recommended)
+If you simply want to generate recommendations using the pre-trained weights without waiting hours for the models to train, run the inference script. This will instantly load the `.pt` models from the `models/` directory:
 
 ```bash
 python recommend.py
+```
+
+### Option 2: Train from Scratch
+If you want to view the exploratory data analysis, data processing, and retrain the models entirely from scratch in your computer's RAM, run the Jupyter Notebook:
+
+```bash
+jupyter notebook netflix-recommendation-system.ipynb
 ```
 
 ---
